@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Romnick Lomeda | Virtual Assistant</title>
+  <title>Romnick | Virtual Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0d0d0d;
-      color: #fff;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: url('FB_IMG_1629670074325.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #e0e0ff;
       overflow-x: hidden;
     }
 
@@ -22,190 +29,181 @@
     }
 
     header {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      background: linear-gradient(to bottom, #0d0d0d, #000);
+      background: rgba(0, 0, 0, 0.7);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid #00bfff;
+      box-shadow: 0 0 20px #00bfff;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: #00bfff;
-      margin-bottom: 10px;
       text-shadow: 0 0 10px #00bfff;
     }
 
     #typed-text {
-      font-size: 1.5rem;
-      color: #fff;
-      font-weight: bold;
+      font-size: 1.4rem;
+      margin-top: 10px;
     }
 
     .button {
-      margin-top: 30px;
-      padding: 12px 24px;
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 24px;
       background: #00bfff;
       color: #000;
-      border: none;
-      border-radius: 6px;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 0 10px #00bfff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 2s ease;
     }
 
     .button:hover {
-      background: #1ec8ff;
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #00bfff;
     }
 
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      animation: fadeInUp 2s ease;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     h2 {
+      font-size: 1.8rem;
       color: #00bfff;
       border-left: 4px solid #00bfff;
       padding-left: 10px;
-      font-size: 1.8rem;
+      margin-bottom: 20px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 14px;
-      color: #888;
-      background: #111;
+      background: rgba(0, 0, 0, 0.8);
+      color: #aaa;
+      animation: fadeIn 2s ease;
     }
   </style>
 </head>
 <body>
-  <!-- Canvas used for particle background animation -->
   <canvas id="bg"></canvas>
+  <audio id="bg-music" loop controls style="position: fixed; bottom: 20px; right: 20px; z-index: 1000;">
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_b61e5c06fd.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-  <!-- Hero header with typing animation -->
   <header>
+    <img src="FB_IMG_1629670074325.jpg" alt="Romnick">
     <h1>Romnick Lomeda</h1>
     <div id="typed-text"></div>
-    <a class="button" href="resume.pdf" download>📄 Download Resume</a>
+    <a class="button" href="RomnickHK.pdf" download>📄 Download Resume</a>
   </header>
 
-  <!-- About section -->
   <section data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I’m Romnick, a certified Virtual Assistant skilled in HubSpot, ServiceTitan, customer service, and lead generation. I love helping businesses stay organized and grow!</p>
+    <p>Certified Virtual Assistant with a strong background in lead generation, customer service, and HubSpot CRM. I'm passionate about helping businesses run smoothly, inspired by the courage of Asta, the determination of Luffy, and the focus of Ultra Instinct Goku.</p>
   </section>
 
-  <!-- Skills section -->
   <section data-aos="fade-up">
     <h2>Skills</h2>
     <ul>
-      <li>HubSpot CRM & Automation</li>
-      <li>Email and Chat Support</li>
-      <li>Lead Generation & Data Entry</li>
-      <li>Excel, ServiceTitan, and eCommerce</li>
+      <li>Lead Generation & Cold Outreach</li>
+      <li>Email and Chat Support (50 WPM)</li>
+      <li>HubSpot, ServiceTitan, Excel</li>
+      <li>Customer Service & CRM Management</li>
     </ul>
   </section>
 
-  <!-- Connect section with social link -->
   <section data-aos="fade-up">
-    <h2>Connect with Me</h2>
+    <h2>Follow Me</h2>
     <a class="button" href="https://www.instagram.com/kcinlomeda/" target="_blank">📸 Instagram</a>
   </section>
 
   <footer>
-    &copy; 2025 Romnick Lomeda. All rights reserved.
+    &copy; 2025 Romnick Lomeda. Inspired by anime. Powered by code.
   </footer>
 
-  <!-- Animation on scroll initialization -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Typing effect library -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    AOS.init(); // Initialize AOS scroll animations
+    AOS.init();
 
-    // Initialize typing animation with custom phrases
     new Typed('#typed-text', {
-      strings: [
-        'Virtual Assistant',
-        'Lead Generation Specialist',
-        'Customer Service Pro',
-        'HubSpot CRM Expert'
-      ],
-      typeSpeed: 60,
-      backSpeed: 40,
+      strings: ['Virtual Assistant', 'CRM Expert', 'Anime-Inspired Worker', 'Your Next Great Hire'],
+      typeSpeed: 50,
+      backSpeed: 30,
       loop: true
     });
-  </script>
 
-  <!-- Particle background animation script -->
-  <script>
     const canvas = document.getElementById('bg');
     const ctx = canvas.getContext('2d');
-    let particlesArray;
 
-    // Set canvas size to fill window
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    // Update canvas size on window resize
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
 
-    // Particle class definition
-    class Particle {
-      constructor() {
-        // Initialize particle at random position with random size and speed
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-      }
-
-      // Update particle position and bounce off edges
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      }
-
-      // Draw particle as a glowing blue dot
-      draw() {
-        ctx.fillStyle = '#00bfff';
+    function drawLightning() {
+      for (let i = 0; i < 3; i++) {
+        const startX = Math.random() * canvas.width;
+        const startY = 0;
+        const endX = startX + (Math.random() - 0.5) * 100;
+        const endY = canvas.height;
+        ctx.strokeStyle = 'rgba(0,191,255,0.5)';
+        ctx.lineWidth = Math.random() * 2 + 1;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.stroke();
       }
     }
 
-    // Initialize particle array with 120 particles
-    function init() {
-      particlesArray = [];
-      for (let i = 0; i < 120; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    // Animate particles each frame
-    function animate() {
+    function animateLightning() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-        particlesArray[i].draw();
-      }
-      requestAnimationFrame(animate); // Continue animation loop
+      drawLightning();
+      requestAnimationFrame(animateLightning);
     }
 
-    init(); // Create particles
-    animate(); // Start animation
+    animateLightning();
   </script>
 </body>
 </html>
