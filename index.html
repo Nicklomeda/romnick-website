@@ -2,152 +2,210 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Romnick Lomeda | Virtual Assistant</title>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #121212;
+      background: #0d0d0d;
       color: #fff;
-      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
 
     header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 60px 20px 30px;
-      background: #1f1f1f;
-    }
-
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #ffc107;
+      background: linear-gradient(to bottom, #0d0d0d, #000);
     }
 
     h1 {
-      margin-top: 20px;
-      font-size: 2.5rem;
-      color: #ffc107;
+      font-size: 3rem;
+      color: #00bfff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00bfff;
     }
 
-    .badge {
-      display: inline-block;
-      background: #28a745;
-      padding: 6px 15px;
-      border-radius: 30px;
+    #typed-text {
+      font-size: 1.5rem;
+      color: #fff;
       font-weight: bold;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      color: #ffc107;
-      border-left: 5px solid #ffc107;
-      padding-left: 10px;
-      margin-bottom: 20px;
     }
 
     .button {
-      display: inline-block;
-      margin: 10px 10px 0 0;
-      padding: 10px 20px;
-      background: #ffc107;
-      color: #121212;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: #00bfff;
+      color: #000;
       border: none;
       border-radius: 6px;
-      font-weight: bold;
       text-decoration: none;
-      transition: transform 0.3s ease;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s;
     }
 
     .button:hover {
+      background: #1ec8ff;
       transform: scale(1.05);
-      background: #ffdb4d;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #00bfff;
+      border-left: 4px solid #00bfff;
+      padding-left: 10px;
+      font-size: 1.8rem;
     }
 
     footer {
       text-align: center;
-      padding: 30px 10px;
+      padding: 20px;
       font-size: 14px;
-      background: #1f1f1f;
-      color: #aaa;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      .button {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
+      color: #888;
+      background: #111;
     }
   </style>
 </head>
 <body>
+  <!-- Canvas used for particle background animation -->
+  <canvas id="bg"></canvas>
 
-  <header data-aos="fade-down">
-    <img src="2x2 pic.png" alt="Romnick Lomeda">
+  <!-- Hero header with typing animation -->
+  <header>
     <h1>Romnick Lomeda</h1>
-    <p>Certified Virtual Assistant | HubSpot | Customer Service</p>
-    <div class="badge">✅ Available for Hire</div>
+    <div id="typed-text"></div>
+    <a class="button" href="resume.pdf" download>📄 Download Resume</a>
   </header>
 
+  <!-- About section -->
   <section data-aos="fade-up">
     <h2>About Me</h2>
-    <p>I’m Romnick Lomeda, a certified Virtual Assistant with over 5 years of experience in customer support, lead generation, and CRM management. I specialize in HubSpot, ServiceTitan, Excel, and love helping businesses grow through organized systems and powerful outreach.</p>
+    <p>I’m Romnick, a certified Virtual Assistant skilled in HubSpot, ServiceTitan, customer service, and lead generation. I love helping businesses stay organized and grow!</p>
   </section>
 
-  <section data-aos="fade-right">
+  <!-- Skills section -->
+  <section data-aos="fade-up">
     <h2>Skills</h2>
     <ul>
-      <li>✔ HubSpot CRM (Workflows, Automation, Segmentation)</li>
-      <li>✔ Email & Chat Support (50 WPM)</li>
-      <li>✔ Lead Generation & Research</li>
-      <li>✔ Data Entry & E-commerce Assistance</li>
-      <li>✔ Hospitality & Hotel Front Desk</li>
+      <li>HubSpot CRM & Automation</li>
+      <li>Email and Chat Support</li>
+      <li>Lead Generation & Data Entry</li>
+      <li>Excel, ServiceTitan, and eCommerce</li>
     </ul>
   </section>
 
-  <section data-aos="fade-left">
-    <h2>Hobbies</h2>
-    <p>Outside work, I enjoy surfing, freediving, and spending time with my dog, Youkiie. I’m also a movie lover with a passion for stories that move and inspire!</p>
-  </section>
-
-  <section data-aos="zoom-in">
+  <!-- Connect section with social link -->
+  <section data-aos="fade-up">
     <h2>Connect with Me</h2>
     <a class="button" href="https://www.instagram.com/kcinlomeda/" target="_blank">📸 Instagram</a>
-    <a class="button" href="resume.pdf" download>📄 Download Resume</a>
   </section>
 
   <footer>
     &copy; 2025 Romnick Lomeda. All rights reserved.
   </footer>
 
-  <!-- AOS Library -->
+  <!-- Animation on scroll initialization -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Typing effect library -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    AOS.init();
+    AOS.init(); // Initialize AOS scroll animations
+
+    // Initialize typing animation with custom phrases
+    new Typed('#typed-text', {
+      strings: [
+        'Virtual Assistant',
+        'Lead Generation Specialist',
+        'Customer Service Pro',
+        'HubSpot CRM Expert'
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
   </script>
 
+  <!-- Particle background animation script -->
+  <script>
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    let particlesArray;
+
+    // Set canvas size to fill window
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Update canvas size on window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    // Particle class definition
+    class Particle {
+      constructor() {
+        // Initialize particle at random position with random size and speed
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+      }
+
+      // Update particle position and bounce off edges
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+
+      // Draw particle as a glowing blue dot
+      draw() {
+        ctx.fillStyle = '#00bfff';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Initialize particle array with 120 particles
+    function init() {
+      particlesArray = [];
+      for (let i = 0; i < 120; i++) {
+        particlesArray.push(new Particle());
+      }
+    }
+
+    // Animate particles each frame
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+      }
+      requestAnimationFrame(animate); // Continue animation loop
+    }
+
+    init(); // Create particles
+    animate(); // Start animation
+  </script>
 </body>
 </html>
